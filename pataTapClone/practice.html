@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>practice</title>
+	<link rel="stylesheet" type="text/css" href="circles.css">
+	<script type="text/javascript" src="paper-full.js"></script>
+
+	<script type="text/paperscript" canvas="myCanvas">
+		
+		var rows = 12;
+    	var cols = 14;
+
+    //center coordinates of any circle being drawn
+    	var x;
+    	var y;
+
+    //center coordinates of first circle being drawn
+    	var xstart = 0;
+    	var ystart = 0;
+
+    // distance between center coordinates
+    	var xspacing = 100;
+    	var yspacing = 100;
+
+    	var radius = 10;
+    	var fillColor = 'pink';
+
+    // create grid and draw circles
+    for(var row = 1; row <= rows; row++) {
+        y = ystart + (row - 1) * yspacing;
+
+        for(var col = 1; col <= cols; col++) {
+            x = xstart + (col - 1) * xspacing;
+            new Path.Circle(new Point(x, y), radius).fillColor = randomColor();
+        }
+    }
+
+    function randomColor() {
+	var r = Math.floor(Math.random() * 256);
+	var g = Math.floor(Math.random() * 256);
+	var b = Math.floor(Math.random() * 256);
+
+	return "rgb(" + r + ", " + g + ", " + b +")";
+}
+
+setTimeout(function(){
+    location = ''
+  },100)
+
+
+
+
+	</script>
+</head>
+<body>
+	<canvas id="myCanvas" resize></canvas>
+</body>
+</html>
